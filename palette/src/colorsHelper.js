@@ -25,4 +25,46 @@
 //     ]
 //   }
 
-import chroma from chroma-js;
+import chroma from "chroma-js";
+const levels = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
+
+function generatePallete(starterPallete) {
+  let newPallete = {
+    palleteName: starterPallete.palleteName,
+    id: starterPallete.id,
+    emoji: starterPallete.emoji,
+    colors: {},
+  };
+  //generating 50:[],100:[],200:[]
+  for (let level of levels) {
+    newPallete.colors[level] = [];
+  }
+  for (let color of starterPallete.colors) {
+    let scale = getScale(color.color, 10).reverse();
+    for (let i in scale) {
+      newPallete.colors[levels[i]].push({
+        name: `${color.name} ${levels[i]}`,
+        id: color.name.toLowerCase().replace(/ /g, "-"),
+        hex: scale[i],
+        rgb: chroma(scale[i]).css(),
+        rgba: chroma(scale[i]).css().replace("rgb","rgba").replace(")",",1.0)")
+      });
+    }
+  }
+  return newPallete;
+}
+
+//Will return an array starting from the darker version of the original color to the original color to finally white using chroma
+function getRangeOfColors(hexColor) {
+  const end = "#fff";
+  return [chroma(hexColor).darken(1.4).hex(), hexColor, end];
+}
+//Generating the range of colors by giving the numberofcolors input and the starting and endpoint too
+function getScale(hexColor, numOfColors) {
+  return chroma
+    .scale(getRangeOfColors(hexColor))
+    .mode("lab")
+    .colors(numOfColors);
+}
+
+export { generatePallete };
