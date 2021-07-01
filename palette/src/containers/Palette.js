@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import ColorBox from "../components/ColorBox";
 import Navbar from "../components/Navbar";
-import "./Pallete.css";
+import "./Palette.css";
 
-export default class Pallete extends Component {
+export default class Palette extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,15 +20,21 @@ export default class Pallete extends Component {
       this.setState({format:val})
   }
   render() {
-    const { colors } = this.props.pallete;
+    const { colors , paletteName , emoji } = this.props.palette;
     const { level , format } = this.state;
     const colorBoxes = colors[level].map((color) => {
-      return <ColorBox background={color[format]} name={color.name} />;
+      return <ColorBox background={color[format]} name={color.name} key={color.id} />;
     });
     return (
-      <div className="Pallete">
+      <div className="Palette">
         <Navbar level={level} changeLevel={this.changeLevel} handleChange={this.changeFormat} />
-        <div className="Pallete-colors">{colorBoxes}</div>
+        <div className="Palette-colors">{colorBoxes}</div>
+        <footer className="Palette-footer">
+          <div className="footer-logo">
+            <a href="/">{paletteName}</a>
+            <span className='emoji'>{emoji}</span>
+          </div>
+        </footer>
       </div>
     );
   }
