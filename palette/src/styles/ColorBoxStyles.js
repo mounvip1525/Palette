@@ -103,7 +103,7 @@ export default {
       marginBottom: "0",
       padding: "1rem",
       textTransform: "uppercase",
-      fontSize:"3rem"
+      fontSize:"4rem"
     },
     "& p": {
       fontSize: "2rem",
