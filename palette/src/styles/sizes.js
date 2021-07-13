@@ -1,4 +1,4 @@
-export default {
+const breakpoints = {
     up() {},
     down(size) {
       const sizes = {
@@ -11,3 +11,4 @@ export default {
       return `@media (max-width: ${sizes[size]})`;
     }
   };
+export default breakpoints;

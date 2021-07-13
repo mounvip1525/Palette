@@ -1,11 +1,15 @@
-export default {
+import sizes from './sizes'
+const styles = {
     PaletteFooter: {
       backgroundColor: "white",
       height: "8vh",
       display: "flex",
       justifyContent: "flex-end",
       alignItems: "center",
-      borderTop:"1px solid grey"
+      borderTop:"1px solid grey",
+      [sizes.down("xs")]: {
+        display:"none"
+      }
     },
     emoji: {
       fontSize: "1.5rem",
@@ -26,3 +30,5 @@ export default {
       }
     }
   };
+
+  export default styles;

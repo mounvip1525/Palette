@@ -1,6 +1,6 @@
 import chroma from "chroma-js";
 import sizes from "./sizes";
-export default {
+const styles = {
   ColorBox: {
     width: "20%",
     height: props => (props.showingFullPalette ? "25%" : "50%"),
@@ -22,7 +22,7 @@ export default {
     },
     [sizes.down("xs")]: {
       width: "100%",
-      height: props => (props.showingFullPalette ? "5%" : "10%")
+      height: props => (props.showingFullPalette ? "10%" : "15%")
     }
   },
   copyText: {
@@ -134,3 +134,5 @@ export default {
     transitionDelay: "0.3s"
   }
 };
+
+export default styles;

@@ -1,8 +1,7 @@
 import sizes from "./sizes";
 import bg from './bg.svg';
-export default {
+const styles = {
   root: {
-    backgroundColor: "blue",
     height: "100vh",
     display: "flex",
     alignItems: "flex-start",
@@ -60,3 +59,5 @@ export default {
     }
   }
 };
+
+export default styles;

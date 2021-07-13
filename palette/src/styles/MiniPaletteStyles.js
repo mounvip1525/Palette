@@ -1,7 +1,6 @@
-export default {
+const styles = {
   root: {
-    backgroundColor: "white",
-    border: "1px solid black",
+    backgroundColor: "rgba(255,255,255,0.3)",
     borderRadius: "5px",
     padding: "0.5rem",
     position: "relative",
@@ -23,7 +22,7 @@ export default {
     justifyContent: "space-between",
     alignItems: "center",
     margin: "0",
-    color: "black",
+    color: "white",
     paddingTop: "0.5rem",
     fontSize: "1rem",
     position: "relative"
@@ -53,3 +52,5 @@ export default {
     opacity: 0
   }
 };
+
+export default styles;
